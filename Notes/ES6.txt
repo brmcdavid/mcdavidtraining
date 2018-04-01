@@ -1,0 +1,29 @@
+Difference between == and ===
+  == will return true if types can reconcile to the same value ex 0==false will
+    return true
+  === will not return true if the types are not the same, ex: 0===false will
+    return false
+
+Difference between var and let
+  var defines a variable or locally for an entire function scope
+  let defines a variable scoped only for the block in which it is used
+
+What is quux
+  sample name like foo or bar
+
+DOM = Document Object Model
+  API for valid html and well formed xml documents
+  defines the structure of documents and the way it is viewed or changed
+
+ECMA = European Computer Manufacturer's Association
+  ECMAScript is a standard for scripting languages, languages like JavaScript
+    are based on the ECMAScript standard, based on several originating
+    technologies like JavaScript (NetScape) and JScript (Microsoft)
+
+Tuples allow you to define an array with elements of different types.
+  ex
+    let x: [string, number];
+      x = ["hello", 10]; //valid
+      x = [10, "hello"]; //invalid
+  elements outside of set known indices use a union type
+    this is basically a check for any already defined type in the tuple.
