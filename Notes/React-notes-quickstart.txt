@@ -1,0 +1,51 @@
+Functions take props, should not be changed by the function itself
+
+Classes use state rather than for rendering, state is private to the class
+  constructors take in props as the argument. State should be managed through
+  the setState() method to trigger UI updates
+
+componentDidMount and componentWillUnMount are called lifecycle hooks
+  I assume as part of the React.Component Class that handle when the component
+  has been added or destroyed from the DOM
+
+More on states, React may update the state asynchronously, so avoid setting a
+  state based upon the current state, other wise the code may fail.
+  State updates are merged, so the state may contain many independent variables.
+  reference previous state with the declaration prevState.
+
+Because React leverages props and states that are privately local to their
+  functions and classes, it uses what is called a top-down or unidirectional
+  data flow since data should only pass from parent to child in terms of props
+  and states.
+
+Events are named with camelCase, JSX pass functions as event handlers instead of
+  strings. Preventing default behavior must be called out explicitly using
+  preventDefault().
+
+For React, you don't need to use addEventListener at creation, instead provide
+  one when the element is rendered to the DOM.
+
+Binding: Generally, if you refer to a method without () after it, such as
+  onClick={this.handleClick}, you should bind that method.
+
+Remember boolean ? true : false syntax for conditional values
+  ex:
+  const button = isLoggedIn ? (
+    <LogoutButton onClick={this.handleLogoutClick} />
+    ) : (
+    <LoginButton onClick={this.handleLoginClick} />
+  );
+
+Keys, they are important for optimizing how React destroys and re-renders
+  changes to the DOM. Having a stable key helps React run joins, for lack of
+  a better term, for reconciling these changes. See the keys code example for
+  best practice on declaring keys for list items. Keys need to be unique button
+  only within the given list array.
+
+Use map for transforms of arrays to DOM elements, ensuring that keys are
+  declared on the function/class call for the list item, be aware of growing
+  complexity, as it may become useful to break things up into more components.
+
+Forms, In order to circumvent default behavior driving form functions, you want
+  to use the react state as the "single source of truth" for managing input
+  values and component side handling for submission processing.
